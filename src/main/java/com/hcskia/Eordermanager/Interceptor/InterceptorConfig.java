@@ -16,6 +16,7 @@ public class InterceptorConfig implements WebMvcConfigurer
     {
         List<String> patterns = new ArrayList<>();
         patterns.add("/user/login");
+        patterns.add("/user/register");
         patterns.add("/error");
         registry.addInterceptor(new JWTInterceptor()).addPathPatterns("/***")//全部路径
                 .excludePathPatterns(patterns);//开放登录路径

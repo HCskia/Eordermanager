@@ -5,12 +5,12 @@ import com.hcskia.Eordermanager.pojo.MaiData;
 import com.hcskia.Eordermanager.pojo.User;
 import com.hcskia.Eordermanager.repository.UserRepository;
 import com.hcskia.Eordermanager.service.TokenUtli;
+import jakarta.annotation.Resource;
 import org.jose4j.lang.JoseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;

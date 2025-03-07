@@ -1,5 +1,6 @@
 package com.hcskia.Eordermanager.pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Table(name = "user")
@@ -8,8 +9,10 @@ public class User{
     @Id
     @Column(name = "userid")
     private String userId;
-    @Column(name = "qq")
-    private String qq;
+
+    @Column(name = "password")
+    @JsonProperty(value="passWord")
+    private String passWord;
 
     public String getUserId(){
         return this.userId;
@@ -18,11 +21,11 @@ public class User{
         this.userId = userid;
     }
 
-    public String getQq(){
-        return this.qq;
+    public String getPw(){
+        return this.passWord;
     }
-    public void setQq(String qq){
-        this.qq = qq;
+    public void setPw(String passWord){
+        this.passWord = passWord;
     }
 
 }
