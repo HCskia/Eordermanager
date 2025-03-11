@@ -60,12 +60,8 @@ public class UserController {
         } else {
             userRepository.save(user);
         }
-        Map<String, String> claimMap = new HashMap<>();
-        claimMap.put("userid", user.getUserId());
-        String token = TokenUtli.GenerateToken(claimMap);
         Map<String, Object> map = new HashMap<>();
         map.put("message","注册成功！");
-        map.put("token",token);
         finStructure.add(initQueryMap("0",map));
         return finStructure;
     }

@@ -75,13 +75,17 @@ public class TokenUtli {
 
     public static Map<String, Claim> VerifyJWTToken(String webToken) throws Exception
     {
-        String[] token = webToken.split("Authorization=");
-        if (token[1].equals("")) {throw new Exception("token错误");}
+        if(webToken.contains("Authorization")){
+            String[] token = webToken.split("Authorization=");
+            if (token[1].equals("")) {throw new Exception("token错误");}
+            webToken = token[1];
+        }
+
 
         //JWT验证器
         JWTVerifier verifier = JWT.require(TokenUtli.ALGORITHM).withIssuer(TokenUtli.ISSUER).build();
         //解码
-        DecodedJWT jwt = verifier.verify(token[1]);//如果 token 过期，此处就会抛出异常
+        DecodedJWT jwt = verifier.verify(webToken);//如果 token 过期，此处就会抛出异常
         //Audience
         List<String> audienceList = jwt.getAudience();
         String audience = audienceList.get(0);
